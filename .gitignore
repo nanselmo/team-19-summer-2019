@@ -1,0 +1,9 @@
+target
+.settings
+.classpath
+# don't upload .factorypath file to github
+.factorypath
+.project
+.idea
+*.iml
+.DS_Store

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A New Chart</title>
+        <!--Import 12 basic chart types, corechart-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            //Methods in loader.js
+            google.charts.load('current', {packages: ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart(){
+                //Called when the pakage loads
+                var pool_data = new google.visualization.DataTable();
+                //define columns for the DataTable instance
+                pool_data.addColumn('string', 'Pool Name');
+                pool_data.addColumn('number', 'Visits');
+            
+                //add data to book_data
+                pool_data.addRows([
+                    ["Astoria Park Pool", 6],
+                    ["YMCA Queens Pool", 10],
+                    ["Westbrook Pool", 7],
+                    ["Pool on 9th Street", 4],
+                    ["Vanderbilt Poolhouse", 8]
+                ]);
+
+                //create an instance of a BarChart
+                var chart = new google.visualization.BarChart(document.getElementById('pool_chart'));
+                //draw th chart
+                chart.draw(pool_data);
+
+
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Chart Project</h1>
+        <div id="book_chart"></div>
+    </body>
+</html>

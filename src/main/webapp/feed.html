@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="doc">
+  <head>
+    <meta charset="UTF-8">
+    <title>Message Feed</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/user-page.css">
+    <script src="/js/public-feed.js"></script>
+    <script src="/js/navigation-loader.js"></script>
+  </head>
+  <body onload="addLoginOrLogoutLinkToNavigation();buildUI();">
+  <nav>
+      <ul id="navigation">
+        <li><a href="/">Home</a></li>
+        <li><a href="/aboutus.html">About Our Team</a></li>
+        <li><a href="/feed.html">Feed</a></li>
+        <li><a href="/map.html">Find Outdoor Pools</a></li>
+        <li><a href="/stats.html">View Stats</a></li>
+      </ul>
+    </nav>
+    <!-- content -->
+    <div id="content">
+      <h1>Message Feed</h1>
+      <hr/>
+      <!-- message container -->
+      <div id="message-container">Loading...</div>
+      <!-- end of message container -->
+    </div>
+    <!-- end of content -->
+  </body>
+</html>
