@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Outdoor Pool Sightings</title>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo"></script>
+        <script>
+            
+            /**
+             * Fetch JSON pool data and create markers on the Google map
+             */
+            function createPoolMap() {
+                fetch('/pool-data').then(function(response) {
+                    return response.json();
+                }).then((poolSightings) => {
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 39.05505684, lng: -76.98694409},
+                        zoom: 7
+                    });
+                    poolSightings.forEach((poolSighting) => {
+                        new google.maps.Marker({
+                            position: {lat: poolSighting.lat, lng: poolSighting.lng},
+                            map: map
+                        });
+                    });
+                });
+            }
+        </script>
+        <style>
+            
+            /* Set the width and height of Google map. */
+            #map {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+    </head>
+    <body onload="createPoolMap();">
+        <h1>Outdoor Pools</h1>
+        <!-- map -->
+        <div id="map"></div>
+    </body>
+</html>
