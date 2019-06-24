@@ -23,7 +23,6 @@ function initialize() {
     request = {
         location: center,
         radius: 8047,
-        //types: ['pool'],
         keyword: 'outdoor swimming pool'
     };
     infoWindow = new google.maps.InfoWindow();
@@ -101,7 +100,6 @@ function initialize() {
 function callback(results, status) {
     if(status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            console.log(results[i]);
             markers.push(createMarker(results[i]));
         }
     }
