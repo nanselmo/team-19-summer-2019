@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="/css/user-page.css">
         <script src="/js/navigation-loader.js"></script>
         <script>
+            /**
+             * Fetches audio version of text
+             */
             function audio() {
                 var data = document.getElementById("message").value;
                 (async () => {
@@ -34,7 +37,9 @@
             <li><a href="/stats.html">View Stats</a></li>
           </ul>
        </nav>
+    <!-- Contains text to be sent to java servlet -->
     <textarea id="message"></textarea>
+    <!-- Button triggers fetch POST request and sends text to java servlet -->
     <button id="sendBtn" onclick="audio()">Send</button>
 </body>
 </html>
