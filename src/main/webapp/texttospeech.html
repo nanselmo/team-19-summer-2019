@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="doc">
+    <head>
+        <meta charset="UTF-8">
+        <title>Message Feed</title>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/user-page.css">
+        <script src="/js/navigation-loader.js"></script>
+        <script>
+            function audio() {
+                var data = document.getElementById("message").value;
+                (async () => {
+                    const response = await fetch('/a11y/tts?text=' + data, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'text/plain'
+                        },
+                        type: 'text',
+                        cache: 'no-cache'
+                    });
+                    const content = await response;
+                    console.log(content);
+                })();
+            }
+        </script>
+      </head>
+      <body onload="addLoginOrLogoutLinkToNavigation();">
+      <nav>
+          <ul id="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/aboutus.html">About Our Team</a></li>
+            <li><a href="/feed.html">Feed</a></li>
+            <li><a href="/map.html">Find Outdoor Pools</a></li>
+            <li><a href="/stats.html">View Stats</a></li>
+          </ul>
+       </nav>
+    <textarea id="message"></textarea>
+    <button id="sendBtn" onclick="audio()">Send</button>
+</body>
+</html>
