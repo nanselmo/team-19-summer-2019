@@ -98,14 +98,6 @@ nav ul li a:hover {
   height: auto;
 }
 
-/* Set the size of the map and add a border. */
-/* #map {
-  width: 80%;
-  margin: 3% auto;
-  height: 700px;
-  border: thin solid black;
-} */
-
 .center {
   text-align:center;
   list-style-position: inside;
