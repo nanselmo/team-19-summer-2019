@@ -21,25 +21,211 @@
 
 /* Prevent the page from becoming too wide and set text font. */
 body {
-  max-width: 600px;
+  width: 100%;
+  margin: 0px;
+  text-align: center;
   font-family: Roboto;
+  overflow: scroll;
+  margin-top: 5%;
+  word-wrap: break;
+}
+
+p {
+  padding: 0 16px 0 16px;
+  font-size: 20px;
+}
+
+.poolbnb {
+  font-family: Roboto;
+  font-size: 75px;
+  color: aquamarine;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+li a:focus {
+  background-color: gray !important;
+}
+
+nav {
+  position: fixed;
+  top: 0%;
+  float: right;
+  padding: 0.5%;
+  width: 100%;
+  background-color: #333333;
 }
 
 /* Remove bullet points from navigation bar. */
 nav ul {
   list-style-type: none;
-  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Keep navigation menu on one line. */
 nav li {
   display: inline-block;
-  margin-right: 10px
+  margin-left: 15px;
+}
+
+nav ul li a {
+  font-family: sans-serif;
+  font-size: 16px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111;
+  color: aquamarine;
+}
+
+#party {
+  width: 25%;
+  height: auto;
 }
 
 /* Set the size of the map and add a border. */
-#map {
-  width: 500px;
-  height: 500px;
+/* #map {
+  width: 80%;
+  margin: 3% auto;
+  height: 700px;
   border: thin solid black;
+} */
+
+.center {
+  text-align:center;
+  list-style-position: inside;
+}
+/* Set the border of the teammates' profile pictures. */
+.team-19-image img {
+  border-image: url(http://thenewcode.com/assets/images/stamp-border.png) 8 round;
+  border-width: 15px;
+  border-style: solid;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  overflow: hidden;
+  width: 80%;
+  height: auto;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 30px 0 30px 0;
+}
+
+.section1 {
+  background-color: #dedede;
+}
+
+#publicfeed {
+  padding-top: 3%;
+  width: 300px;
+  height: 340px;
+}
+/* 
+.image {
+  padding-bottom: 80px;
+} */
+
+.gifs {
+  padding-bottom: 50px;
+}
+
+.teamSection {
+  padding-bottom: 2.5%;
+}
+
+.sectionmain h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #555555;
+  font-size: 70px;
+  text-align: center;
+  margin: 65px auto 30px;
+}
+
+.team-19-row {
+  margin: 0 auto;
+}
+
+/* .team-19-wrap {
+  padding: 0 47px;
+} */
+
+.team-19-member, .team-19-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-19-title {
+  margin: 30px 0 7px;
+}
+
+.overlay {
+  background-color: rgba(20,20,20,0.7);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.team-19-details {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding: 5%;
+  overflow: hidden;
+  width: 100%;
+  z-index: 2;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.team-19-details p {
+  color: #fff;
+}
+.team-19-image:hover .team-19-details {
+  opacity: 1;
+  margin-top: -80px;
+}
+.team-19-image:hover .overlay {
+  opacity: 1;
+}
+.container {
+  width:100%;
+}
+#left {
+float:left;
+}
+
+#center {
+margin:0 auto;
+}
+
+#right {
+float:right;
 }

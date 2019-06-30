@@ -4,25 +4,148 @@ var request;
 var request2;
 var request3;
 var request4;
+var request5;
+var request6;
 var service;
 var service2;
 var service3;
 var service4;
+var service5;
+var service6;
 var markers = [];
+//Lat: 38.8819124
+//Long:77.1372792
+//Radius: 8047
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 38.8819124, lng: 77.1372792},
+        zoom: 13
+    })
+    var val = 8047;
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                zoom: 13
+            });
+            request = {
+                location: center,
+                radius: val,
+                keyword: 'outdoor swimming pool'
+            };
+            infoWindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, callback);
+        
+            request2 = {
+                location: center,
+                radius: val,
+                keyword: 'waterpark'
+            };
+            service2 = new google.maps.places.PlacesService(map);
+            service2.nearbySearch(request2, callback);
+        
+            request3 = {
+                location: center,
+                radius: val,
+                keyword: 'outdoor pool'
+            };
+            service3 = new google.maps.places.PlacesService(map);
+            service3.nearbySearch(request3, callback);
+        
+            request4 = {
+                location: center,
+                radius: val,
+                keyword: 'swim club'
+            }
+            service4 = new google.maps.places.PlacesService(map);
+            service4.nearbySearch(request4, callback);
+        
+            request5 = {
+                location: center,
+                radius: val,
+                keyword: 'pool'
+            }
+            service5 = new google.maps.places.PlacesService(map);
+            service5.nearbySearch(request5, callback);
+        
+            request6 = {
+                location: center,
+                radius: val,
+                keyword: 'swimming pool'
+            }
+            service6 = new google.maps.places.PlacesService(map);
+            service6.nearbySearch(request6, callback);
+            
+            /**
+             * When user right clicks on a different area on the map, the
+             * map shows outdoor pools in that area. 
+             */
+            google.maps.event.addListener(map, 'rightclick', function(event) {
+                map.setCenter(event.latLng);
+                clearResults(markers);
+            
+                var request = {
+                    location: event.latLng,
+                    radius: val,
+                    keyword: 'outdoor swimming pool'
+                };
+                service.nearbySearch(request, callback);
+            
+                var request2 = {
+                    location: event.latLng,
+                    radius: val,
+                    keyword: 'waterpark'
+                };
+                service2.nearbySearch(request2, callback);
+            
+                var request3 = {
+                    location: event.latLng,
+                    radius: val,
+                    keyword: 'outdoor pool'
+                };
+                service3.nearbySearch(request3, callback);
+            
+                var request4 = {
+                    location: event.latLng,
+                    radius: val,
+                    keyword: 'swim club'
+                }
+                service4.nearbySearch(request4, callback);
+            
+                var request5 = {
+                    location: event.latLng,
+                    radius: val,
+                    keyword: 'pool'
+                }
+                service5.nearbySearch(request5, callback);
+            
+                var request6 = {
+                    location: event.latLng,
+                    radius: val,
+                    keyword: 'swimming pool'
+                }
+                service6.nearbySearch(request6, callback);
+            })
+        })
+    }
+}
 
 /**
  * Creates map view of default location with red markers
  * on places that have outdoor pools. 
  */
 function initialize() {
-    var center = new google.maps.LatLng(38.8819124,-77.1372792);
+    var val =8047;
+    var center = new google.maps.LatLng(latitude,longitude);
     map = new google.maps.Map(document.getElementById('map'), {
         center: center,
         zoom: 13
     });
     request = {
         location: center,
-        radius: 8047,
+        radius: val,
         keyword: 'outdoor swimming pool'
     };
     infoWindow = new google.maps.InfoWindow();
@@ -31,7 +154,7 @@ function initialize() {
 
     request2 = {
         location: center,
-        radius: 8047,
+        radius: val,
         keyword: 'waterpark'
     };
     service2 = new google.maps.places.PlacesService(map);
@@ -39,7 +162,7 @@ function initialize() {
 
     request3 = {
         location: center,
-        radius: 8047,
+        radius: val,
         keyword: 'outdoor pool'
     };
     service3 = new google.maps.places.PlacesService(map);
@@ -47,12 +170,27 @@ function initialize() {
 
     request4 = {
         location: center,
-        radius: 8047,
+        radius: val,
         keyword: 'swim club'
     }
     service4 = new google.maps.places.PlacesService(map);
     service4.nearbySearch(request4, callback);
 
+    request5 = {
+        location: center,
+        radius: val,
+        keyword: 'pool'
+    }
+    service5 = new google.maps.places.PlacesService(map);
+    service5.nearbySearch(request5, callback);
+
+    request6 = {
+        location: center,
+        radius: val,
+        keyword: 'swimming pool'
+    }
+    service6 = new google.maps.places.PlacesService(map);
+    service6.nearbySearch(request6, callback);
     /**
      * When user right clicks on a different area on the map, the
      * map shows outdoor pools in that area. 
@@ -63,32 +201,45 @@ function initialize() {
 
     var request = {
         location: event.latLng,
-        radius: 8047,
-        //types: ['pool'],
+        radius: val,
         keyword: 'outdoor swimming pool'
     };
     service.nearbySearch(request, callback);
 
     var request2 = {
         location: event.latLng,
-        radius: 8047,
+        radius: val,
         keyword: 'waterpark'
     };
     service2.nearbySearch(request2, callback);
 
     var request3 = {
         location: event.latLng,
-        radius: 8047,
+        radius: val,
         keyword: 'outdoor pool'
     };
     service3.nearbySearch(request3, callback);
 
     var request4 = {
         location: event.latLng,
-        radius: 8047,
+        radius: val,
         keyword: 'swim club'
     }
     service4.nearbySearch(request4, callback);
+
+    var request5 = {
+        location: event.latLng,
+        radius: val,
+        keyword: 'pool'
+    }
+    service5.nearbySearch(request5, callback);
+
+    var request6 = {
+        location: event.latLng,
+        radius: val,
+        keyword: 'swimming pool'
+    }
+    service6.nearbySearch(request6, callback);
     })
 }
 
@@ -134,6 +285,5 @@ function clearResults(markers) {
     }
     markers = []
 }
-
 /* Display map when webpage loads. */
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initMap);
