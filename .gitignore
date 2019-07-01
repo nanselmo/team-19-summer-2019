@@ -1,6 +1,7 @@
 target
 .settings
 .classpath
+.vscode/
 # don't upload .factorypath file to github
 .factorypath
 .project

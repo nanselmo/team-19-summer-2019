@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>A New Chart</title>
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/js/navigation-loader.js"></script>
         <!--Import 12 basic chart types, corechart-->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
@@ -33,8 +35,15 @@
             }
         </script>
     </head>
-    <body>
+    <body onload="addLoginOrLogoutLinkToNavigation();">
+        <nav>
+            <ul id="navigation">
+                <li><a href="/">Home</a></li>
+                <li><a href="/map.html">Rent-A-Pool</a></li>
+                <li><a href="feed.html">Feed</a></li>
+            </ul>
+        </nav>
         <h1>Chart Project</h1>
-        <div id="book_chart"></div>
+        <div id="pool_chart"></div>
     </body>
 </html>

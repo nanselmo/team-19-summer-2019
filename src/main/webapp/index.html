@@ -17,14 +17,8 @@ limitations under the License.
 <!DOCTYPE html>
 <html class="doc">
   <head>
-    <style>
-      #Jasmine {
-        text-align: center;
-        color: purple;
-      }
-    </style>
     <meta charset="UTF-8">
-    <title>CodeU 2019 Starter Project</title>
+    <title>Pool Rental</title>
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/navigation-loader.js"></script>
   </head>
@@ -32,24 +26,83 @@ limitations under the License.
     <nav>
       <ul id="navigation">
         <li><a href="/">Home</a></li>
-        <li><a href="/aboutus.html">About Our Team</a></li>
-        <li><a href="/feed.html">Feed</a></li>
-        <li><a href="/map.html">Find Outdoor Pools</a></li>
-        <li><a href="/stats.html">View Stats</a></li>
+        <li><a href="/map.html">Rent-A-Pool</a></li>
+        <li><a href="feed.html">Feed</a></li>
       </ul>
     </nav>
-    <!--<div id="Introductions">
-   <h2>Hey! My name is Sabrina Kundu. My favorite snack is <font color="#4B0082">Takis Fuego Hot Chili Pepper & Lime</font> 🔥.
-	In high school, I used to buy these almost everyday from the food truck during lunch.</h2>
-    <img src="https://barcel-usa.com/sites/default/files/Takis-Fuego-Product.png" alt="Taki Fuego bag" height="500" width="500" />
-    </div>-->
+    <h1 class="poolbnb" style="margin-bottom:1%;">PoolB&B</h1>
+    <img id="party" src="images/poolpuppy.gif" width="150%" height="150%" alt="pool party"/>
+    <h1>Stay Cool in the Pool!</h1>
+    <p>Welcome to PoolB&B! We're here to help you rent a pool for a day. Just search for a pool using our search box and map, choose the date you want to book, and pay online to confirm your reservation.</p>
+    <br>
+    <br>
+    <div class="section1">
+      <br>
+      <h1 class="sectionmain">Share a snap of your pool party</h1>
+      <h3>Post pics and write reviews of the pools you visited!</h3>
+      <img class="image gifs" id="publicfeed" src="images/message1.png" alt="chat"/>
+    </div>
+    <div class="section2">
+      <br>
+      <h1 class="sectionmain">Find Pools Near You</h1>
+      <h3>Use our map to find pools in your area</h3>
+      <img class="image gifs" src="images/map.png" alt="map"/>
+    </div>
+    <div class="container">
 
-    <div id="Jasmine">
-      <h3>Hello! I'm Jasmine Amani Murphy, and I like Pusheen the cat. I'd like a real
-        cat, but I'm quite allergic. So I would need a lot of allergy medicine or a
-        hypoallergenic one.
-      </h3>
-      <img src="https://www.dogalize.com/wp-content/uploads/2017/05/pusheen.jpg" alt="Pusheen reading" height="420" width="560" />
+      <h1 class="teamSection">Meet Our Team</h1>
+      <div class="row team-19-row">
+
+      <!-- Member 1 -->
+        <div class="column team-19-wrap" id="left">
+          <div class="team-19-member text-center">
+            <div class="team-19-image">
+              <img class="image" src="https://lh3.googleusercontent.com/a-/AAuE7mBAuqHx3buFVnpnpsGX3HuklCl7nenaRtLcaY2s=s88-c-mo" alt="Brenda"/>
+              <div class="overlay">
+                <div class="team-19-details text-center">
+                    <p>Fun fact: I'm allergic to caffeine but love the taste of coffee and coke.</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="team-19-title">Brenda Salazar</h3>
+            <h5>CodeU Project Advisor</h5>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="column team-19-wrap" id="center">
+            <div class="team-19-member text-center">
+              <div class="team-19-image">
+                <img class="image" src="images/sabrina.jpg" alt="Sabrina"/>
+                <div class="overlay">
+                  <div class="team-19-details text-center">
+                      <p>Fun fact: I love to stay active! I enjoy taking Zumba classes, going to the gym, and practicing yoga.</p>
+                  </div>
+                </div>
+              </div>
+              <h3 class="team-19-title">Sabrina Kundu</h3>
+              <h5>CodeU Developer</h5>
+            </div>
+        </div>     
+
+        <!-- Member 3 -->
+        <div class="column team-19-wrap" id="right" style="height:607.33px;">
+            <div class="team-19-member text-center">
+              <div class="team-19-image">
+                <img class="image" src="https://www.dogalize.com/wp-content/uploads/2017/05/pusheen.jpg" alt="Jasmine"/>
+                <div class="overlay">
+                  <div class="team-19-details text-center">
+                      <p>Fun fact: I love bubble tea and started making my own at home!</p>
+                  </div>
+                </div>
+              </div>
+              <h3 class="team-19-title">Jasmine Murphy</h3>
+              <h5>CodeU Developer</h5>
+            </div>
+        </div>
+
+      </div>
+
     </div>
   </body>
 </html>

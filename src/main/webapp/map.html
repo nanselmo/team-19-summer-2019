@@ -1,31 +1,95 @@
 <!DOCTYPE html>
 <html class="doc">
 <head>
-  <title>Hello Google Maps</title>
+  <title>Rent-A-Pool</title>
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/navigation-loader.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo"></script>
+  <link rel="stylesheet" href="/css/map.css">
   <script src="/js/map-pools.js"></script>
 </head>
-<body onload="addLoginOrLogoutLinkToNavigation();">
+<body onload="addLoginOrLogoutLinkToNavigation();initMap();">
     <nav>
         <ul id="navigation">
             <li><a href="/">Home</a></li>
-            <li><a href="/aboutus.html">About Our Team</a></li>
+            <li><a href="/map.html">Rent-A-Pool</a></li>
             <li><a href="/feed.html">Feed</a></li>
-            <li><a href="/map.html">Find Outdoor Pools</a></li>
-            <li><a href="/stats.html">View Stats</a></li>
         </ul>
-    </nav>
-  <h1>Outdoor Pools Near You</h1>
+    </nav> 
+<div style="margin:7% 3% 0% 3%;">
+  <h1 style="text-align:left;">Pools Near You</h1>
   <!-- instructions for user -->
-  <p>Instructions: </p>
-      <ol>
-          <li>Drag the map to your preferred location</li>
-          <li>Right click on that area</li>
-          <li>View pools nearby</li>
+  <p style="text-align:left;">Instructions: </p>
+  <div class="center">
+      <ol style="text-align:left;">
+          <li>Choose the country from the given options.</li>
+          <li>Enter a city.</li>
+          <li>View pools nearby in map and list.</li>
+          <li>Click on the markers in the map or locations in the list to view address, phone number, ratings, open hours, and pool's website.</li>
       </ol>
+ </div>
   <!-- Map Div -->
-  <div id="map"></div>
+  <div class="pool-search">
+        <div id="findpools">
+          Find pools in:
+        </div>
+      
+        <div id="locationField">
+          <input id="autocomplete" placeholder="Enter a city" type="text" />
+        </div>
+      
+        <div id="controls">
+          <select id="country">
+            <option value="all">All</option>
+            <option value="au">Australia</option>
+            <option value="br">Brazil</option>
+            <option value="ca">Canada</option>
+            <option value="fr">France</option>
+            <option value="de">Germany</option>
+            <option value="mx">Mexico</option>
+            <option value="nz">New Zealand</option>
+            <option value="it">Italy</option>
+            <option value="za">South Africa</option>
+            <option value="es">Spain</option>
+            <option value="pt">Portugal</option>
+            <option value="us" selected>U.S.A.</option>
+            <option value="uk">United Kingdom</option>
+          </select>
+        </div>
+      </div>
+      <br />
+        <div id="map"></div>
+        <div id="listing"><table id="resultsTable"><tbody id="results"></tbody></table></div>
+      <div style="display: none">
+        <div id="info-content">
+          <table>
+            <tr id="iw-url-row" class="iw_table_row">
+              <td id="iw-icon" class="iw_table_icon"></td>
+              <td id="iw-url"></td>
+            </tr>
+            <tr id="iw-address-row" class="iw_table_row">
+              <td class="iw_attribute_name">Address:</td>
+              <td id="iw-address"></td>
+            </tr>
+            <tr id="iw-phone-row" class="iw_table_row">
+              <td class="iw_attribute_name">Telephone:</td>
+              <td id="iw-phone"></td>
+            </tr>
+            <tr id="iw-rating-row" class="iw_table_row">
+              <td class="iw_attribute_name">Rating:</td>
+              <td id="iw-rating"></td>
+            </tr>
+            <tr id="iw-openhours-row" class="iw_table_row">
+                <td class="iw_attribute_name">Open Hours:</td>
+                <td id="iw-openhours"></td>
+            </tr>
+            <tr id="iw-website-row" class="iw_table_row">
+              <td class="iw_attribute_name">Website:</td>
+              <td id="iw-website"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
