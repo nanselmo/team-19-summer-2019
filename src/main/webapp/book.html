@@ -48,7 +48,7 @@
 
       // authorization scopes required by the api; multiple scopes can be
       // included, separated by spaces.
-      var scopes = "https://www.googleapis.com/auth/calendar.readonly";
+      var scopes = "https://www.googleapis.com/auth/calendar.readonly,https://www.googleapis.com/auth/calendar.events.readonly,https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/calendar.events,https://www.googleapis.com/auth/calendar.settings.readonly,https://www.googleapis.com/auth/calendar.addons.execute";
 
       var authorizebutton = document.getElementById('authorize_button');
       var signoutbutton = document.getElementById('signout_button');
@@ -67,7 +67,9 @@
       function initclient() {
 		gapi.auth2.init({
 			client_id: '1035416922591-fcadip3s7vbk63qpj75gsd8ksqjp4pmq.apps.googleusercontent.com',
-			cookie_policy: 'none'
+			cookie_policy: 'none',
+			ux_mode: 'redirect',
+            redirect_uri: 'http://localhost:8080/book.html'
 			//cookie_policy: 'single_host_origin'			
 			});
         gapi.client.init({
@@ -77,6 +79,7 @@
           scope: scopes
         }).then(function () {
           // listen for sign-in state changes.
+	      gapi.client.load('calendar', 'v3', function() {});
           gapi.auth2.getAuthInstance().isSignedIn.listen(updatesigninstatus);
 
           // handle the initial sign-in state.
@@ -96,7 +99,7 @@
         if (issignedin) {
           authorizebutton.style.display = 'none';
           signoutbutton.style.display = 'block';
-          listupcomingevents();
+	      gapi.client.load('calendar', 'v3', listupcomingevents);
         } else {
           authorizebutton.style.display = 'block';
           signoutbutton.style.display = 'none';
@@ -114,7 +117,7 @@
        *  sign out the user upon button click.
        */
       function handlesignoutclick(event) {
-        gapi.auth2.getauthinstance().signout();
+        gapi.auth2.getAuthInstance().signOut();
       }
 
       /**
@@ -136,8 +139,8 @@
        */
       function listupcomingevents() {
         gapi.client.calendar.events.list({
-          'calendarid': 'primary',
-          'timemin': (new date()).toisostring(),
+          'calendarId': 'primary',
+          'timemin': (new Date()).toISOString(),
           'showdeleted': false,
           'singleevents': true,
           'maxresults': 10,
@@ -196,8 +199,6 @@
 		  
 		</div>
 	  </div>
-	  
-
 	  
 	</div>
 
