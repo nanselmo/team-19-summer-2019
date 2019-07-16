@@ -203,7 +203,7 @@ function buildIWContent(place) {
 document.getElementById('iw-icon').innerHTML = '<img class="poolIcon" ' +
     'src="images/pool.png" style="width:36px;height:36px;"/>';
 document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
-    '">' + place.name + '</a></b>';
+    '" target="_blank">' + place.name + '</a></b>';
 document.getElementById('iw-address').textContent = place.vicinity;
 
 if (place.formatted_phone_number) {
@@ -237,7 +237,8 @@ if (place.website) {
     fullUrl = website;
     }
     document.getElementById('iw-website-row').style.display = '';
-    document.getElementById('iw-website').textContent = website;
+    document.getElementById('iw-website').innerHTML = '<a href="' + website +
+    '" target="_blank">' + website + '</a>';
 } else {
     document.getElementById('iw-website-row').style.display = 'none';
 }
