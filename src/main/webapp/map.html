@@ -7,6 +7,31 @@
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo"></script>
   <link rel="stylesheet" href="/css/map.css">
   <script src="/js/map-pools.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="/js/submitTix.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  .calendar {
+    position: relative;
+    padding: 15px;
+    width: 50%;
+    height: 100%;
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .container {
+    padding: 2px 16px;
+  }
+  </style>
 </head>
 <body onload="addLoginOrLogoutLinkToNavigation();initMap();">
     <nav>
@@ -16,14 +41,14 @@
             <li><a href="/feed.html">Feed</a></li>
         </ul>
     </nav> 
-<div style="margin:7% 3% 0% 3%;">
-  <h1 style="text-align:left;">Pools Near You</h1>
+<div style="margin:/*7%*/ 3% 0% 3%;">
+  <h1 style="text-align:left; padding-top: 20px;">Pools Near You</h1>
   <!-- instructions for user -->
   <p style="text-align:left;">Instructions: </p>
   <div class="center">
       <ol style="text-align:left;">
           <li>Choose the country from the given options.</li>
-          <li>Enter a city.</li>
+          <li>Enter a city and state.</li>
           <li>View pools nearby in map and list.</li>
           <li>Click on the markers in the map or locations in the list to view address, phone number, ratings, open hours, and pool's website.</li>
       </ol>
@@ -35,7 +60,7 @@
         </div>
       
         <div id="locationField">
-          <input id="autocomplete" placeholder="Enter a city" type="text" />
+          <input id="autocomplete" placeholder="Enter a city and state" type="text" />
         </div>
       
         <div id="controls">
@@ -89,12 +114,38 @@
             </tr>
 			<tr>
 			  <td>
-			  <button position=center><!--onclick=-->Book Now!</button>
+			  <button position=center type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Now!</button>
 			  </td>
 			</tr>
           </table>
         </div>
       </div>
+
+      <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Book Your Pool</h4>
+          </div>
+          <div class="calendar" width=900>
+            <p>Select the day and time you would like to book your pool!</p>
+            <form id="ticket" name="myTix">
+              <input type="date" name="Day">Enter day</input>
+              <input type="time" name="Time">Enter time</input>
+            </form>
+            <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+            <script>paypal.Buttons().render('body');</script>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" onclick="submitTix()">Submit</button>
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>-->
+          </div>
+          </div>
+
     </div>
 </body>
 </html>
