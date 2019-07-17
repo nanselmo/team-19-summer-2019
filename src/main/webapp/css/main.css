@@ -230,3 +230,22 @@ float:right;
 #title {
   color: #666a86;
 }
+
+.imageBtn {
+  cursor: pointer;
+}
+
+.imageBtn:after {
+  content: "";
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.imageBtn:active:after {
+  opacity: 1;
+  transition: 0s;
+}
+
+.link {
+   color: black;
+ }
