@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="/js/submitTix.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <style>
@@ -40,7 +41,7 @@
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
       var CLIENT_ID = '1035416922591-fcadip3s7vbk63qpj75gsd8ksqjp4pmq.apps.googleusercontent.com';
-      var API_KEY = 'aizasyc66nhsldrwu09nvqprlzlita5fcb_wubo';
+      var API_KEY = 'AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo';
       // Array of API discovery doc URLs for APIs used by the quickstart
       var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
       // Authorization scopes required by the API; multiple scopes can be
@@ -166,12 +167,16 @@
 			</div>
 			<div class="calendar" width=900>
 			  <p>Select the day and time you would like to book your pool!</p>
-			  <iframe src="https://calendar.google.com/calendar/embed?src=codeustudents.com_sne398fs41acpn47eih5aessjc%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width=800px height=600px frameborder="0" scrolling="no"></iframe>
+        <form id="ticket" name="myTix">
+			    <input type="date" name="Day">Enter day</input>
+          <input type="time" name="Time">Enter time</input>
+        </form>
 			  <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
 			  <script>paypal.Buttons().render('body');</script>
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-default" data-dismiss="modal">Book Now!</button>
+        <button type="submit" onclick="submitTix()">Submit</button>
+			  <!--<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>-->
 			</div>
 		  </div>
 		  
