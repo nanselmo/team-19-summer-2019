@@ -2,8 +2,6 @@
 <html class="doc">
 <head>
   <title>Rent-A-Pool</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -11,7 +9,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo"></script>
   <link rel="stylesheet" href="/css/map.css">
   <script src="/js/map-pools.js"></script>
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="/js/submitTix.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -116,20 +114,21 @@
               <td class="iw_attribute_name">Website:</td>
               <td id="iw-website"></td>
             </tr>
-<!-- <<<<<<< HEAD
+<<<<<<< HEAD
 			<tr>
 			  <td>
 			  <button position=center type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Now!</button>
 			  </td>
 			</tr>
-======= -->
+=======
             <tr>
               <td></td>
               <td></td>
               <td>
-                <a href="#" class="btn btn-default btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="background-color: rgb(240,248,255);">Book Now!</a>
+                <a href="#" class="btn btn-default" style="background-color: rgb(240,248,255);">Book Now!</a>
               </td>
             </tr>
+>>>>>>> 870e726a7c4f100e1f7a97aa87c04e4b398dc1df
           </table>
         </div>
       </div>
@@ -144,8 +143,8 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Book Your Pool</h4>
           </div>
-          <div class="calendar">
-            <p style="text-align: center; width: 100%;">Select the day and time you would like to book your pool!</p>
+          <div class="calendar" width=900>
+            <p>Select the day and time you would like to book your pool!</p>
             <form id="ticket" name="myTix">
               <input type="date" name="Day">Enter day</input>
               <input type="time" name="Time">Enter time</input>
