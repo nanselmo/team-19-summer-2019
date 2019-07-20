@@ -13,6 +13,7 @@
   <script src="/js/map-pools.js"></script>
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
   <script src="/js/submitTix.js"></script>
+  <script src="/js/ticket-page-loader.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <style>
@@ -43,6 +44,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/map.html">Rent-A-Pool</a></li>
             <li><a href="/feed.html">Feed</a></li>
+        <li><a href="/tickets.html">Tickets</a></li>
         </ul>
     </nav> 
 <div style="margin:/*7%*/ 3% 0% 3%;">
@@ -146,17 +148,22 @@
           </div>
           <div class="calendar">
             <p style="text-align: center; width: 100%;">Select the day and time you would like to book your pool!</p>
-            <form id="ticket" name="myTix">
+            <form id="ticket-form" action="/tickets" method="POST">
               <input type="date" name="Day">Enter day</input>
               <input type="time" name="Time">Enter time</input>
+              <input type="submit" value="Submit" data-dismiss="modal">
             </form>
             <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
             <script>paypal.Buttons().render('body');</script>
           </div>
           <div class="modal-footer">
-            <button type="submit" onclick="submitTix()">Submit</button>
+<!--        <form id="ticket-form" action="/tickets" method="POST" class="hidden">
+              <input type="submit" value="Submit" data-dismiss="modal">
+            </form> -->
+            <!--<input type="submit" value="Submit">-->
+            <!--<button type="submit" onclick="submitTix()">Submit</button>-->
             <!--<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>-->
-          </div>
+          </div>          
           </div>
 
     </div>
