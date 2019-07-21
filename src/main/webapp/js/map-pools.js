@@ -86,6 +86,7 @@ autocomplete.addListener('place_changed', onPlaceChanged);
 document.getElementById('country').addEventListener(
     'change', setAutocompleteCountry);
 }
+
 function onPlaceChanged() {
 var place = autocomplete.getPlace();
 if (place.geometry) {
