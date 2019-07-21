@@ -45,7 +45,6 @@ function buildMessageDiv(message){
   messageDiv.classList.add("message-div");
   messageDiv.appendChild(headerDiv);
   messageDiv.appendChild(bodyDiv);
-  
   return messageDiv;
 }
 

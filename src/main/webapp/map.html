@@ -10,11 +10,13 @@
   <script src="/js/navigation-loader.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo"></script>
   <link rel="stylesheet" href="/css/map.css">
-  <script src="/js/map-pools.js"></script>
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
   <script src="/js/submitTix.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="/js/map-pools.js"></script>
   <style>
   .calendar {
     position: relative;
@@ -37,7 +39,7 @@
   }
   </style>
 </head>
-<body onload="addLoginOrLogoutLinkToNavigation();initMap();">
+<body onload="addLoginOrLogoutLinkToNavigation();initMap();initCart();">
     <nav>
         <ul id="navigation">
             <li><a href="/">Home</a></li>
@@ -45,7 +47,7 @@
             <li><a href="/feed.html">Feed</a></li>
         </ul>
     </nav> 
-<div style="margin:/*7%*/ 3% 0% 3%;">
+<div style="padding:5%;">
   <h1 style="text-align:left; padding-top: 20px;">Pools Near You</h1>
   <!-- instructions for user -->
   <p style="text-align:left;">Instructions: </p>
@@ -127,38 +129,50 @@
               <td></td>
               <td></td>
               <td>
-                <a href="#" class="btn btn-default btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="background-color: rgb(240,248,255);">Book Now!</a>
+                <a href="#" class="btn btn-default btn-info btn-md" data-toggle="modal" data-target="#myModal" style="background-color: rgb(240,248,255);color:rgba(20,20,20,0.7);">Book Now!</a>
               </td>
             </tr>
           </table>
         </div>
       </div>
 
-      <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-    
-          <!-- Modal content-->
-          <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Book Your Pool</h4>
+          <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Book Your Pool</h4>
+            </div>
+            <div class="calendar">
+              <p style="text-align: center; width: 100%;">Select the day and time you would like to book your pool!</p>
+              <form id="ticket" name="myTix">
+                <input type="date" name="Day">Enter day</input>
+                <input type="time" name="Time">Enter time</input>
+              </form>
+              <!-- <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+              <script>paypal.Buttons().render('body');</script> -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" id="bookPool" data-dismiss="modal" onclick="submitTix();">Submit</button>
+            </div>
           </div>
-          <div class="calendar">
-            <p style="text-align: center; width: 100%;">Select the day and time you would like to book your pool!</p>
-            <form id="ticket" name="myTix">
-              <input type="date" name="Day">Enter day</input>
-              <input type="time" name="Time">Enter time</input>
-            </form>
-            <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
-            <script>paypal.Buttons().render('body');</script>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" onclick="submitTix()">Submit</button>
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>-->
-          </div>
-          </div>
+        </div>
+     </div>
 
-    </div>
+     <!-- Your Bookings -->
+     <div class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart" id="close-cart"><i class="fas fa-window-close"></i></span>
+            <h2>your bookings</h2>
+            <div class="cart-content"></div>
+            <div class="cart-footer"></div>
+              <h3>total : $<span id="totalNtax">0</span></h3>
+              <button class="clear-cart banner-btn">clear cart</button>
+              <h3></h3>
+              <div id="paypal-button-container" style="width:50%;display:flex;align-items:center;margin:auto;"></div>
+              <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+              <script>paypal.Buttons().render("#paypal-button-container");</script>
+        </div>
+     </div>
 </body>
 </html>

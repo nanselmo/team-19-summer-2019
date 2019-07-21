@@ -28,7 +28,6 @@ body {
   overflow: scroll;
   margin-top: 5%;
   word-wrap: break;
-  background: #f5d6ba;
 }
 
 p {
@@ -228,7 +227,10 @@ float:right;
 }
 
 #title {
-  color: #666a86;
+  color: black;
+  background-color: #f5d6ba;
+  margin: 0;
+  padding-top: 3%;
 }
 
 .imageBtn {
@@ -248,4 +250,14 @@ float:right;
 
 .link {
    color: black;
+ }
+
+ .message-body img {
+   display: block;
+   margin-top: 25px;
+   max-width: 75%;
+ }
+
+ .team-19-wrap {
+   background-color: #f5d6ba;
  }
