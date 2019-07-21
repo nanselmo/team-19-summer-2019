@@ -11,15 +11,16 @@
   <script src="/js/navigation-loader.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo"></script>
   <link rel="stylesheet" href="/css/map.css">
-  <script src="/js/map-pools.js"></script>
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
   <script src="/js/ticket-page-loader.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="/js/map-pools.js"></script>
   <style>
   .calendar {
     position: relative;
-    padding: 15px;
-    width: 50%;
+    padding: 1em;
     height: 100%;
   }
   .card {
@@ -43,10 +44,10 @@
             <li><a href="/">Home</a></li>
             <li><a href="/map.html">Rent-A-Pool</a></li>
             <li><a href="/feed.html">Feed</a></li>
-        <li><a href="/tickets.html">Tickets</a></li>
+            <li><a href="/tickets.html">Tickets</a></li>
         </ul>
     </nav> 
-<div style="margin:/*7%*/ 3% 0% 3%;">
+<div style="padding:5%;">
   <h1 style="text-align:left; padding-top: 20px;">Pools Near You</h1>
   <!-- instructions for user -->
   <p style="text-align:left;">Instructions: </p>
@@ -55,7 +56,8 @@
           <li>Choose the country from the given options.</li>
           <li>Enter a city and state.</li>
           <li>View pools nearby in map and list.</li>
-          <li>Click on the markers in the map or locations in the list to view address, phone number, ratings, open hours, and pool's website.</li>
+          <li>Click on the markers in the map or locations in the list to view address, phone number, ratings, open hours, and pool's website</li>
+          <li>Once you've found a pool, click on its marker and click "Book Now!".</li>
       </ol>
  </div>
   <!-- Map Div -->
@@ -117,25 +119,17 @@
               <td class="iw_attribute_name">Website:</td>
               <td id="iw-website"></td>
             </tr>
-<!-- <<<<<<< HEAD
-			<tr>
-			  <td>
-			  <button position=center type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Now!</button>
-			  </td>
-			</tr>
-======= -->
             <tr>
               <td></td>
               <td></td>
               <td>
-                <a href="#" class="btn btn-default btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="background-color: rgb(240,248,255);">Book Now!</a>
+                <a href="#" class="btn btn-default btn-info btn-md" data-toggle="modal" data-target="#myModal" style="background-color: rgb(240,248,255);color:rgba(20,20,20,0.7);">Book Now!</a>
               </td>
             </tr>
           </table>
         </div>
       </div>
 
-      <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
     
@@ -146,14 +140,18 @@
             <h4 class="modal-title">Book Your Pool</h4>
           </div>
           <div class="calendar">
-            <p style="text-align: center; width: 100%;">Select the day and time you would like to book your pool!</p>
+            <p>Select the day and time you would like to book your pool!</p>
             <form id="ticket-form" action="/tickets" method="POST">
-              <input type="date" name="day">Enter day</input>
-              <input type="time" name="time">Enter time</input>
-              <input type="submit" value="Submit" data-dismiss="modal">
+              Enter day: <input type="date" name="Day" />&nbsp;Enter time: <input type="time" name="Time"><br>
+              <br>
+              <input type="submit" id="bookPool" value="Submit" data-dismiss="modal">
             </form>
+            <h3>Total : $<span id="totalNtax">0</span></h3>
+            <button class="clear-cart banner-btn">Cancel</button>
+            <h3></h3>
+            <div class="paypal-button-container"></div>
             <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
-            <script>paypal.Buttons().render('body');</script>
+            <script>paypal.Buttons().render(".paypal-button-container");</script>
           </div>
           <div class="modal-footer">
 <!--        <form id="ticket-form" action="/tickets" method="POST" class="hidden">
@@ -164,7 +162,7 @@
             <!--<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>-->
           </div>          
           </div>
-
-    </div>
+        </div>
+     </div>
 </body>
 </html>
