@@ -60,30 +60,6 @@ var countries = {
 }
 };
 
-function initCart() {
-    const book = document.getElementById("bookPool");
-    book.addEventListener("click", function() {
-        showCart();
-    })
-
-    const ex = document.getElementById("close-cart");
-    ex.addEventListener("click", function() {
-        closeCart();
-    })
-}
-
-function showCart() {
-    const cartOverlay = document.querySelector(".cart-overlay");
-    const cartDOM = document.querySelector(".cart");
-    cartOverlay.classList.add("transparentBcg");
-    cartDOM.classList.add("showCart");
-}
-function closeCart() {
-    const cartOverlay = document.querySelector(".cart-overlay");
-    const cartDOM = document.querySelector(".cart");
-    cartOverlay.classList.remove("transparentBcg");
-    cartDOM.classList.remove("showCart");
-}
 function initMap() {
 map = new google.maps.Map(document.getElementById('map'), {
     zoom: countries['us'].zoom,

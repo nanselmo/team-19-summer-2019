@@ -17,34 +17,34 @@ limitations under the License.
 <!DOCTYPE html>
 <html class="doc">
   <head>
-    <title>User Page</title>
+    <title>Ticket Page</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/user-page.css">
-    <script src="/js/user-page-loader.js"></script>
+    <script src="/js/ticket-page-loader.js"></script>
     <script src="/js/navigation-loader.js"></script>
   </head>
-  <body onload="buildUI();addLoginOrLogoutLinkToNavigation();">
+  <body onload="buildUI();addLoginOrLogoutLinkToNavigation();fetchTix();">
     <nav>
         <ul id="navigation">
           <li><a href="/">Home</a></li>
           <li><A href="/map.html">Rent-A-Pool</A></li>
           <li><a href="/feed.html">Feed</a></li>
-          <li><a href="/tickets.html">Tickets</a></li>
+        <li><a href="/tickets.html">Tickets</a></li>
         </ul>
       </nav>
-    <h1 id="page-title">User Page</h1>
+    <h1 id="page-title">Ticket Page</h1>
 
-    <form id="message-form" action="/messages" method="POST" class="hidden">
+    <form id="ticket-form" action="/tickets" method="POST" class="hidden">
       Enter a new message:
       <br/>
-      <textarea name="text" id="message-input"></textarea>
+      <textarea name="text" id="ticket-input"></textarea>
       <br/>
       <input type="submit" value="Submit">
     </form>
     <hr/>
 
-    <div id="message-container">Loading...</div>
+    <div id="ticket-container">Loading...</div>
 
   </body>
 </html>

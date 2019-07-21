@@ -16,5 +16,4 @@ function submitTix() {
 
 	console.log(pairs);
 
-
 }

@@ -18,14 +18,14 @@ import com.google.gson.Gson;
 @WebServlet("/tixfeed")
 public class TicketFeedServlet extends HttpServlet{
   
- private TixDatastore datastore;
+ private TixDatastore tixDatastore;
 
  /**
   *  Initializes datastore variable.
   */
  @Override
  public void init() {
-  datastore = new TixDatastore();
+  tixDatastore = new TixDatastore();
  }
  
  /**
@@ -37,7 +37,7 @@ public class TicketFeedServlet extends HttpServlet{
 
   response.setContentType("application/json");
   
-  List<Ticket> tix = datastore.getAllTix();
+  List<Ticket> tix = tixDatastore.getAllTix();
   Gson gson = new Gson();
   String json = gson.toJson(tix);
   
