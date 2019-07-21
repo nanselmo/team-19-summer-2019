@@ -31,10 +31,10 @@ import java.util.UUID;
 /** Provides access to the data stored in Datastore. */
 public class TixDatastore {
 
-  private DatastoreService datastore;
+  private DatastoreService tixDatastore;
 
   public TixDatastore() {
-    datastore = DatastoreServiceFactory.getDatastoreService();
+    tixDatastore = DatastoreServiceFactory.getDatastoreService();
   }
 
   /** Stores the Message in Datastore. */
@@ -42,10 +42,10 @@ public class TixDatastore {
     Entity ticketEntity = new Entity("Ticket", tix.getId().toString());
     ticketEntity.setProperty("user", tix.getUser());
     ticketEntity.setProperty("date", tix.getDate());
-    ticketEntity.setProperty("time", tix.getDate());
+    ticketEntity.setProperty("time", tix.getTime());
     ticketEntity.setProperty("timestamp", tix.getTimestamp());
 
-    datastore.put(ticketEntity);
+    tixDatastore.put(ticketEntity);
   }
 
    /*
@@ -65,7 +65,7 @@ public class TixDatastore {
             .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
             .addSort("timestamp", SortDirection.DESCENDING);
       }
-      PreparedQuery results = datastore.prepare(query);
+      PreparedQuery results = tixDatastore.prepare(query);
       for(Entity entity : results.asIterable()) {
         try {
           String idString = entity.getKey().getName();
@@ -113,7 +113,7 @@ public class TixDatastore {
   /** Returns the total number of messages for all users. */
   public int getTotalTixCount(){
     Query query = new Query("Ticket");
-    PreparedQuery results = datastore.prepare(query);
+    PreparedQuery results = tixDatastore.prepare(query);
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
   }
 }
