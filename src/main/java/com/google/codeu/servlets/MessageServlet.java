@@ -57,7 +57,7 @@ public class MessageServlet extends HttpServlet {
       response.getWriter().println("[]");
       return;
     }
-
+    
     List<Message> messages = datastore.getMessages(user);
     Gson gson = new Gson();
     String json = gson.toJson(messages);
@@ -79,7 +79,7 @@ public class MessageServlet extends HttpServlet {
     String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
 
     String regex = "(https?://\\S+\\.(png|jpg))";
-    String replacement = "<img src=\"$1\" />";
+    String replacement = "<img src=\"$1\" style=\"margin:auto;\"/>";
     String textWithImagesReplaced = text.replaceAll(regex, replacement);
 
     Message message = new Message(user, textWithImagesReplaced);
