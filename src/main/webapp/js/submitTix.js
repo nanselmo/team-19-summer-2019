@@ -17,3 +17,8 @@ function submitTix() {
 	console.log(pairs);
 
 }
+
+<input type="submit" id="bookPool" value="Submit" data-dismiss="modal">
+              <input type="date" name="day">Enter day</input>
+              <input type="time" name="time">Enter time</input>
+              <input type="submit" value="Submit" data-dismiss="modal">
