@@ -71,4 +71,8 @@ table {
   .iw_table_icon {
     text-align: right;
   }
+  .paypal-button-container {
+    width:50%;
+    margin: auto;
+  }
   
