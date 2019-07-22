@@ -76,12 +76,12 @@ public class TicketServlet extends HttpServlet {
       response.sendRedirect("/index.html");
       return;
     }
-
+    
+    System.out.println(request.getParameter("date"));
+    System.out.println(request.getParameter("time"));
     String user = userService.getCurrentUser().getEmail();
     String date = Jsoup.clean(request.getParameter("date"), Whitelist.none());
     String time = Jsoup.clean(request.getParameter("time"), Whitelist.none());
-    System.out.println(request.getParameter("date"));
-    System.out.println(request.getParameter("time"));
 
     Ticket tix = new Ticket(user, date, time);
     tixDatastore.storeTicket(tix);

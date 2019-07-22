@@ -12,6 +12,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC66NhsLDRWu09NvqpRLzLita5fCb_WUbo"></script>
   <link rel="stylesheet" href="/css/map.css">
   
+  <script src="/js/ticket-feed.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
   <script src="/js/ticket-page-loader.js"></script>
@@ -119,10 +120,7 @@
               <td class="iw_attribute_name">Website:</td>
               <td id="iw-website"></td>
             </tr>
-<<<<<<< HEAD
 
-=======
->>>>>>> 413c797dce10d570d070e7d835a7f15e4681c31c
             <tr>
               <td></td>
               <td></td>
@@ -146,14 +144,9 @@
           <div class="calendar">
             <p>Select the day and time you would like to book your pool!</p>
             <form id="ticket-form" action="/tickets" method="POST">
-              Enter day: <input type="date" name="Day" />&nbsp;Enter time: <input type="time" name="Time"><br>
+              Enter day: <input type="date" name="date" id="date"/>&nbsp;Enter time: <input type="time" name="time" id="time"><br>
               <br>
-              <!-- <input type="submit" id="bookPool" value="Submit" data-dismiss="modal">
-              <input type="date" name="day">Enter day</input>
-              <input type="time" name="time">Enter time</input>
-              <input type="submit" value="Submit" data-dismiss="modal"> -->
-
-              <input type="submit" id="bookPool" value="Submit" data-dismiss="modal">
+              <input type="submit" id="bookPool" value="Submit" data-dismiss="modal" formaction="/tickets">
             </form>
             <h3>Total : $<span id="totalNtax">0</span></h3>
             <button class="clear-cart banner-btn">Cancel</button>
@@ -163,6 +156,10 @@
             <script>paypal.Buttons().render(".paypal-button-container");</script>
           </div>
           <div class="modal-footer">
+              <!-- <input type="submit" id="bookPool" value="Submit" data-dismiss="modal">
+              <input type="date" name="day">Enter day</input>
+              <input type="time" name="time">Enter time</input>
+              <input type="submit" value="Submit" data-dismiss="modal"> -->
 <!--        <form id="ticket-form" action="/tickets" method="POST" class="hidden">
               <input type="submit" value="Submit" data-dismiss="modal">
             </form> -->
