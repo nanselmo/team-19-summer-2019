@@ -4,7 +4,7 @@ function fetchTix(){
   fetch(url).then((response) => {
     return response.json();
   }).then((tix) => {
-    const ticketsContainer = document.getElementById('ticket-container');
+    const ticketsContainer = document.getElementById('tix-container');
     if(tix.length == 0){
      ticketsContainer.innerHTML = '<p>There are no tickets yet.</p>';
     }

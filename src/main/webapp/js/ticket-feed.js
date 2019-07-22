@@ -28,17 +28,17 @@ function buildMessageDiv(ticket){
  timeDiv.appendChild(document.createTextNode(new Date(ticket.timestamp)));
  
  const headerDiv = document.createElement('div');
- headerDiv.classList.add('message-header');
+ headerDiv.classList.add('ticket-header');
  headerDiv.appendChild(usernameDiv);
  headerDiv.appendChild(timeDiv);
  
  const bodyDiv = document.createElement('div');
- bodyDiv.classList.add('message-body');
+ bodyDiv.classList.add('ticket-body');
  bodyDiv.appendChild(document.createTextNode(ticket.date));
  bodyDiv.appendChild(document.createTextNode(ticket.time));
  
  const ticketDiv = document.createElement('div');
- ticketDiv.classList.add("message-div");
+ ticketDiv.classList.add("ticket-div");
  ticketDiv.appendChild(headerDiv);
  ticketDiv.appendChild(bodyDiv);
  
