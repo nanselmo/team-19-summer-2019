@@ -144,7 +144,8 @@
           <div class="calendar">
             <p>Select the day and time you would like to book your pool!</p>
             <form id="ticket-form" action="/tickets" method="POST">
-              Enter day: <input type="date" name="date" id="date"/>&nbsp;Enter time: <input type="time" name="time" id="time"><br>
+              Date: <input type="date" name="Day" id="date"/>&nbsp;Start time: <input type="time" name="StartTime">&nbsp;End time: <input type="time" name="EndTime">
+              <br>
               <br>
               <input type="submit" id="bookPool" value="Submit" data-dismiss="modal" formaction="/tickets">
             </form>
@@ -156,7 +157,8 @@
             <script>paypal.Buttons().render(".paypal-button-container");</script>
           </div>
           <div class="modal-footer">
-              <!-- <input type="submit" id="bookPool" value="Submit" data-dismiss="modal">
+              <!-- Enter day: <input type="date" name="date" id="date"/>&nbsp;Enter time: <input type="time" name="time" id="time"><br>
+              <input type="submit" id="bookPool" value="Submit" data-dismiss="modal">
               <input type="date" name="day">Enter day</input>
               <input type="time" name="time">Enter time</input>
               <input type="submit" value="Submit" data-dismiss="modal"> -->
