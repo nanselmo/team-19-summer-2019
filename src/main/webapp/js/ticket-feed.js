@@ -12,7 +12,7 @@ function fetchTix(){
      ticketsContainer.innerHTML = '';  
     }
     tix.forEach((tix) => {  
-     const tixDiv = buildMessageDiv(ticket);
+     const tixDiv = buildMessageDiv(tix);
      ticketsContainer.appendChild(tixDiv);
     });
   });
